@@ -11,7 +11,7 @@ const initialState = {
     id: '2',
     firstName: 'Elies',
     lastName: 'Amarelo',
-    phone: '0603938765',
+    phone: '0603931165',
     city: 'Paris'
   }]
 };

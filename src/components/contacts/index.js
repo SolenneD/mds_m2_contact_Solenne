@@ -72,20 +72,30 @@ const Contact = ({ dispatch, user }) => {
   );
 };
 
-const Contacts = ({ dispatch, items }) => (
-  <div className="column">
-    <ul>
-      {items.map((user) => (
-        <Contact
-          key={user.id}
-          dispatch={dispatch}
-          user={user}
-        />
-      ))}
-    </ul>
-    <Form />
-  </div>
-);
+const Contacts = ({ dispatch, items }) => {
+  const [search, setSearch] = useState('');
+  return (
+    <div className="column">
+      <ul>
+        <input className="search" type="search" placeholder="Rechercher" onChange={(e) => setSearch(e.target.value)} />
+        {
+          items
+            .filter((i) => i.firstName.toLowerCase().indexOf(search.toLowerCase()) !== -1
+            || i.lastName.toLowerCase().indexOf(search.toLowerCase()) !== -1
+            || i.phone.toLowerCase().indexOf(search.toLowerCase()) !== -1)
+            .map((user) => (
+              <Contact
+                key={user.id}
+                dispatch={dispatch}
+                user={user}
+              />
+            ))
+        }
+      </ul>
+      <Form />
+    </div>
+  );
+};
 
 const mapToProps = (state) => {
   const { items } = state.contacts;

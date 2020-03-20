@@ -16,6 +16,14 @@ ul {
   overflow: scroll;
   height: 100vh;
 
+  .search {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
   li {
     padding: 15px;
     border-bottom: 1px solid #e2e2e2;
